@@ -23,7 +23,7 @@ public class balanced_binary_tree {
 	public int getHeight(TreeNode x){
 		int leftHeight = 0; 
 		int rightHeight = 0;
-		if(x.left == null && x.right == null){		//递归终止条件
+		if(x.left == null && x.right == null){		//叶子节点，递归终止条件
 			return 1;
 		}else{
 			if(x.left != null){
@@ -32,7 +32,7 @@ public class balanced_binary_tree {
 			if(x.right != null){
 				rightHeight = getHeight(x.right);
 			}
-			if(leftHeight > rightHeight + 1 || rightHeight > leftHeight + 1 || leftHeight == -1 || rightHeight == -1){	//如果刚出现不平衡或者已经出现了不平衡就返回0
+			if(leftHeight > rightHeight + 1 || rightHeight > leftHeight + 1 || leftHeight == -1 || rightHeight == -1){	//如果刚出现不平衡或者已经出现了不平衡就返回-1
 				return -1;
 			}else{			//否则返回1
 				return (leftHeight > rightHeight) ? (leftHeight + 1) : (rightHeight + 1);
